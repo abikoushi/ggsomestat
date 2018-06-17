@@ -1,6 +1,7 @@
+#' @rdname ggplot2-ggproto
 #' @import ggplot2
 #' @export
-StatMA <- ggproto("StatMA", Stat,
+StatMA <- ggplot2::ggproto("StatMA", ggplot2::Stat,
                   required_aes = c("x", "y"),
 
                   compute_group = function(data, scales,windowsize) {

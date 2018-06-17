@@ -1,6 +1,6 @@
 #' @import ggplot2
 #' @export
-StatSumUp <- ggproto("StatSomeUp", Stat,
+StatSumUp <- ggplot2::ggproto("StatSomeUp", ggplot2::Stat,
                   required_aes = c("x", "y"),
 
                   compute_group = function(data, scales, or_more) {

@@ -1,6 +1,6 @@
 #' @import ggplot2
 #' @export
-StatBinomCI <- ggproto("StatBinomCI", Stat,
+StatBinomCI <- ggplot2::ggproto("StatBinomCI", ggplot2::Stat,
                        required_aes = c("x", "numerator", "denominator"),
 
                        compute_group = function(data, scales, conf.level) {
