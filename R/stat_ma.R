@@ -5,7 +5,7 @@ StatMA <- ggplot2::ggproto("StatMA", ggplot2::Stat,
 
                   compute_group = function(data, scales,windowsize) {
                     grid <- data.frame(x = data$x)
-                    grid$y <- stats::filter(data$y, rep(1,windowsize)) / windowsize
+                    grid$y <- as.numeric(stats::filter(data$y, rep(1,windowsize)) / windowsize)
                     grid
                   }
 )
