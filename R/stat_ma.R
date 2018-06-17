@@ -1,4 +1,3 @@
-#' @rdname ggplot2-ggproto
 #' @import ggplot2
 #' @export
 StatMA <- ggplot2::ggproto("StatMA", ggplot2::Stat,
