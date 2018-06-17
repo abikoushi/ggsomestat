@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1529259394316.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "1F994792",
+    "lastKnownWriteTime" : 1529259418,
+    "last_content_update" : 1529259418931,
+    "path" : "~/Documents/ggsomestat/R/stat_binomCI.R",
+    "project_path" : "R/stat_binomCI.R",
+    "properties" : {
+        "cursorPosition" : "0,35",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
