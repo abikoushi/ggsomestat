@@ -1,3 +1,5 @@
+#' @import ggplot2
+#' @export
 StatSumUp <- ggproto("StatSomeUp", Stat,
                   required_aes = c("x", "y"),
 

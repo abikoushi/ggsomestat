@@ -1,3 +1,5 @@
+#' @import ggplot2
+#' @export
 StatBinomCI <- ggproto("StatBinomCI", Stat,
                        required_aes = c("x", "numerator", "denominator"),
 
