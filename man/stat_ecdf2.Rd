@@ -6,7 +6,17 @@ Compute empirical cumulative distribution
 }
 
 \usage{
-stat_ecdf2(mapping = NULL, data = NULL, geom = "step", position = "identity", ..., height = 1, pad = TRUE, decreasing = FALSE, na.rm = FALSE, show.legend = NA, inherit.aes = TRUE)
+stat_ecdf2(mapping = NULL,
+  data = NULL,
+  geom = "step",
+  position = "identity",
+  ...,
+  height = 1,
+  pad = TRUE,
+  decreasing = FALSE,
+  na.rm = FALSE,
+  show.legend = NA,
+  inherit.aes = TRUE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -26,7 +36,7 @@ Position adjustment, either as a string, or the result of a call to a position a
 other arguments passed on to layer. This can include aesthetics whose values you want to set, not map. See layer for more details.
 }
   \item{height}{
-Max height. By default, set to 0.9.
+Max height. By default, set to 1.
 }
   \item{pad}{
 If \code{TRUE}, pad the ecdf with additional points \code{-Inf} and \code{Inf}
