@@ -11,79 +11,42 @@ stat_ecdf2(mapping = NULL, data = NULL, geom = "step", position = "identity", ..
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{mapping}{
-%%     ~~Describe \code{mapping} here~~
+Set of aesthetic mappings created by \code{aes()} or \code{aes_()}. If specified and inherit.aes = TRUE (the default), it is combined with the default mapping at the top level of the plot. You must supply mapping if there is no plot mapping.
 }
   \item{data}{
-%%     ~~Describe \code{data} here~~
+The data to be displayed in this layer.
 }
   \item{geom}{
-%%     ~~Describe \code{geom} here~~
+The geometric object to use display the data
 }
   \item{position}{
-%%     ~~Describe \code{position} here~~
+Position adjustment, either as a string, or the result of a call to a position adjustment function.
 }
   \item{\dots}{
-%%     ~~Describe \code{\dots} here~~
+other arguments passed on to layer. This can include aesthetics whose values you want to set, not map. See layer for more details.
 }
   \item{height}{
-%%     ~~Describe \code{height} here~~
+Max height. By default, set to 0.9.
 }
   \item{pad}{
-%%     ~~Describe \code{pad} here~~
+If \code{TRUE}, pad the ecdf with additional points \code{-Inf} and \code{Inf}
 }
   \item{decreasing}{
-%%     ~~Describe \code{decreasing} here~~
+If \code{TRUE}, the ecdf shows upper probabilities. By default, set to \code{FALSE}.
 }
   \item{na.rm}{
-%%     ~~Describe \code{na.rm} here~~
+  If FALSE, the default, missing values are removed with a warning. If TRUE, missing values are silently removed.
 }
   \item{show.legend}{
-%%     ~~Describe \code{show.legend} here~~
+logical. Should this layer be included in the legends? NA, the default, includes if any aesthetics are mapped. FALSE never includes, and TRUE always includes. It can also be a named logical vector to finely select the aesthetics to display.
 }
-  \item{inherit.aes}{
-%%     ~~Describe \code{inherit.aes} here~~
+\item{inherit.aes}{
+The position adjustment to use for overlappling points on this layer
 }
-}
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
-\value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
-\references{
-%% ~put references to the literature/web site here ~
-}
-\author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function (mapping = NULL, data = NULL, geom = "step", position = "identity",
-    ..., height = 1, pad = TRUE, decreasing = FALSE, na.rm = FALSE,
-    show.legend = NA, inherit.aes = TRUE)
-{
-    layer(data = data, mapping = mapping, stat = StatEcdf2, geom = geom,
-        position = position, show.legend = show.legend, inherit.aes = inherit.aes,
-        params = list(height = height, decreasing = decreasing,
-            pad = pad, na.rm = na.rm, ...))
-  }
+ggplot(searchConsole, aes(impressions, pagePath)) +
+  stat_ecdf2()
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory (show via RShowDoc("KEYWORDS")):

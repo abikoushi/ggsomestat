@@ -19,44 +19,38 @@ stat_sparkline(
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{x}{
-%%     ~~Describe \code{x} here~~
+  \item{mapping}{
+The aesthetic mapping, usually constructed with aes or aes_string. Only needs to be set at the layer level if you are overriding the plot defaults.
 }
+  \item{data}{
+A layer specific dataset - only needed if you want to override the plot defaults.
 }
-\details{
-%%  ~~ If necessary, more details than the description above ~~
+  \item{geom}{
+The geometric object to use display the data
 }
-\value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+  \item{position}{
+The position adjustment to use for overlappling points on this layer
 }
-\references{
-%% ~put references to the literature/web site here ~
-}
-\author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
+  \item{\dots}{
+other arguments passed on to layer. This can include aesthetics whose values you want to set, not map. See layer for more details.
 }
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+  \item{na.rm}{
+  If FALSE, the default, missing values are removed with a warning. If TRUE, missing values are silently removed.
+}
+  \item{orientation}{
+  The orientation of the layer. The default (NA) automatically determines the orientation from the aesthetic mapping. In the rare event that this fails it can be given explicitly by setting orientation to either "x" or "y". See the Orientation section for more detail.
+}
+  \item{show.legend}{
+logical. Should this layer be included in the legends? NA, the default, includes if any aesthetics are mapped. FALSE never includes, and TRUE always includes. It can also be a named logical vector to finely select the aesthetics to display.
+}
+  \item{inherit.aes}{
+If FALSE, overrides the default aesthetics, rather than combining with them. This is most useful for helper functions that define both data and aesthetics and shouldn't inherit behaviour from the default plot specification, e.g. \code{borders()}.
+}
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function (x)
-{
-  }
+ggplot(searchConsole, aes(x = date, y = pagePath, inner_y = clicks)) +
+  stat_sparkline()
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory (show via RShowDoc("KEYWORDS")):

@@ -14,31 +14,31 @@ stat_binomCI(mapping = NULL, data = NULL, geom = "linerange", position = "identi
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{mapping}{
-%%     ~~Describe \code{mapping} here~~
+The aesthetic mapping, usually constructed with aes or aes_string. Only needs to be set at the layer level if you are overriding the plot defaults.
 }
   \item{data}{
-%%     ~~Describe \code{data} here~~
+A layer specific dataset - only needed if you want to override the plot defaults.
 }
   \item{geom}{
-%%     ~~Describe \code{geom} here~~
+The geometric object to use display the data
 }
   \item{position}{
-%%     ~~Describe \code{position} here~~
+The position adjustment to use for overlappling points on this layer
 }
   \item{na.rm}{
-%%     ~~Describe \code{na.rm} here~~
+  If FALSE, the default, missing values are removed with a warning. If TRUE, missing values are silently removed.
 }
   \item{show.legend}{
-%%     ~~Describe \code{show.legend} here~~
+logical. Should this layer be included in the legends? NA, the default, includes if any aesthetics are mapped. FALSE never includes, and TRUE always includes. It can also be a named logical vector to finely select the aesthetics to display.
 }
   \item{inherit.aes}{
-%%     ~~Describe \code{inherit.aes} here~~
+The position adjustment to use for overlappling points on this layer
 }
   \item{conf.level}{
-%%     ~~Describe \code{conf.level} here~~
+confidence level for the returned confidence interval.
 }
   \item{\dots}{
-%%     ~~Describe \code{\dots} here~~
+other arguments passed on to layer. This can include aesthetics whose values you want to set, not map. See layer for more details.
 }
 }
 \details{
@@ -67,7 +67,10 @@ stat_binomCI(mapping = NULL, data = NULL, geom = "linerange", position = "identi
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-
+entry0117 <- searchConsole[searchConsole$pagePath=="/entry/2015/01/17/064522",]
+ggplot(entry0117, aes(date, clicks/impressions)) +
+  geom_line()+
+  stat_binomCI(geom = "ribbon",aes(numerator=clicks,denominator=impressions),alpha=0.3)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory (show via RShowDoc("KEYWORDS")):

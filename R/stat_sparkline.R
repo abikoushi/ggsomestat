@@ -14,7 +14,7 @@ id <- ggplot2:::id
 stat_sparkline <- function(mapping = NULL, data = NULL,
                        geom = "line", position = "identity",
                        ...,
-                       height = 1,
+                       height = 0.9,
                        na.rm = FALSE,
                        show.legend = NA,
                        inherit.aes = TRUE) {
@@ -35,7 +35,7 @@ stat_sparkline <- function(mapping = NULL, data = NULL,
 }
 
 StatSparkline <- ggproto("StatSparkline", Stat,
-                     required_aes = c("x","y"),
+                     required_aes = c("x","y","inner_y"),
 
                      default_aes = aes(y = after_stat(y)),
 
@@ -53,9 +53,10 @@ StatSparkline <- ggproto("StatSparkline", Stat,
 
                      compute_group = function(data, scales, height = 1, flipped_aes = FALSE) {
                        data <- flip_data(data, flipped_aes)
-                       y <- data$y
+                       y <- data$inner_y
                        y <- y/max(abs(y),na.rm = TRUE)
-                       df_sp <- new_data_frame(list(x = data$x, y = height*y))
+                       mp = median(y, na.rm = TRUE)
+                       df_sp <- new_data_frame(list(x = data$x, y = data$y + height*(y-mp)))
                        df_sp$flipped_aes <- flipped_aes
                        flip_data(df_sp, flipped_aes)
                      }
