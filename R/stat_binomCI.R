@@ -13,6 +13,9 @@ StatBinomCI <- ggplot2::ggproto("StatBinomCI", ggplot2::Stat,
                          grid
                        }
 )
+
+#' @import ggplot2
+#' @export
 stat_binomCI <- function(mapping = NULL, data = NULL, geom = "linerange",
                     position = "identity", na.rm = FALSE, show.legend = NA,
                     inherit.aes = TRUE, conf.level=0.95,...) {

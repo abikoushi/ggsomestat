@@ -2,8 +2,8 @@ Package: ggsomestat
 Type: Package
 Title: Some stat in ggplot2
 Version: 0.1.0
-Author: abiko_ushi
-Maintainer: abiko_ushi <yourself@somewhere.net>
+Author: Ko ABE
+Maintainer: Ko ABE <yourself@somewhere.net>
 Description: Some stat in ggplot2
     Some stat in ggplot2
 License: GPL
