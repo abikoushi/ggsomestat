@@ -1,15 +1,15 @@
 ###
 # utilities
 "%||%" <- ggplot2:::"%||%"
-rbind_dfs <- ggplot2:::rbind_dfs
-dapply <- ggplot2:::dapply
-df_rows <- ggplot2:::df_rows
-new_data_frame <- ggplot2:::new_data_frame
-modify_list <- ggplot2:::modify_list
-id_var <- ggplot2:::id_var
-id <- ggplot2:::id
+data_frame0 <- ggplot2:::data_frame0
+#rbind_dfs <- ggplot2:::rbind_dfs
+#new_data_frame <- ggplot2:::new_data_frame
+# dapply <- ggplot2:::dapply
+# df_rows <- ggplot2:::df_rows
+# modify_list <- ggplot2:::modify_list
+# id_var <- ggplot2:::id_var
+# id <- ggplot2:::id
 ###
-#' @import ggplot2
 #' @export
 stat_ecdf2 <- function(mapping = NULL, data = NULL,
                       geom = "step", position = "identity",
@@ -63,7 +63,12 @@ StatEcdf2 <- ggproto("StatEcdf2", Stat,
                       }
                       res <- sort(x, decreasing = decreasing)
                       p <- seq(0, 1, length.out = length(x))
-                      df_ecdf <- new_data_frame(list(x = unname(unlist(res)), y = data$y[is.finite(data$y)][1] + height*p))
+                      df_ecdf <- data_frame0(
+                        x = unname(res),
+                        y = data$y[is.finite(data$y)][1] + height*p,
+                        .size = length(res)
+                      )
+                      #df_ecdf <- new_data_frame(list(x = unname(unlist(res)), y = data$y[is.finite(data$y)][1] + height*p))
                       df_ecdf$flipped_aes <- flipped_aes
                       flip_data(df_ecdf, flipped_aes)
                     }

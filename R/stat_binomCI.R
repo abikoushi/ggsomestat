@@ -1,4 +1,3 @@
-#' @import ggplot2
 #' @export
 StatBinomCI <- ggplot2::ggproto("StatBinomCI", ggplot2::Stat,
                        required_aes = c("x", "numerator", "denominator"),
@@ -14,7 +13,6 @@ StatBinomCI <- ggplot2::ggproto("StatBinomCI", ggplot2::Stat,
                        }
 )
 
-#' @import ggplot2
 #' @export
 stat_binomCI <- function(mapping = NULL, data = NULL, geom = "linerange",
                     position = "identity", na.rm = FALSE, show.legend = NA,

@@ -1,15 +1,17 @@
 ###
+#rbind_dfs <- ggplot2:::rbind_dfs
+#new_data_frame <- ggplot2:::new_data_frame
+#dapply <- ggplot2:::dapply
+#df_rows <- ggplot2:::df_rows
+#modify_list <- ggplot2:::modify_list
+#id_var <- ggplot2:::id_var
+#id <- ggplot2:::id
+###
 # utilities
 "%||%" <- ggplot2:::"%||%"
-rbind_dfs <- ggplot2:::rbind_dfs
-dapply <- ggplot2:::dapply
-df_rows <- ggplot2:::df_rows
-new_data_frame <- ggplot2:::new_data_frame
-modify_list <- ggplot2:::modify_list
-id_var <- ggplot2:::id_var
-id <- ggplot2:::id
+data_frame0 <- ggplot2:::data_frame0
 ###
-#' @import ggplot2
+
 #' @export
 stat_sparkline <- function(mapping = NULL, data = NULL,
                        geom = "line", position = "identity",
@@ -56,7 +58,10 @@ StatSparkline <- ggproto("StatSparkline", Stat,
                        y <- data$inner_y
                        y <- y/max(abs(y),na.rm = TRUE)
                        mp = median(y, na.rm = TRUE)
-                       df_sp <- new_data_frame(list(x = data$x, y = data$y + height*(y-mp)))
+                       df_sp <- data_frame0(x = data$x,
+                                            y = data$y + height*(y-mp),
+                                            .size = length(x))
+                       #df_sp <- new_data_frame(list(x = data$x, y = data$y + height*(y-mp)))
                        df_sp$flipped_aes <- flipped_aes
                        flip_data(df_sp, flipped_aes)
                      }

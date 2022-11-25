@@ -1,8 +1,6 @@
-#' @import ggplot2
 #' @export
 StatMA <- ggplot2::ggproto("StatMA", ggplot2::Stat,
                   required_aes = c("x", "y"),
-
                   compute_group = function(data, scales, windowsize) {
                     grid <- data.frame(x = data$x)
                     grid$y <- as.numeric(stats::filter(data$y, rep(1,windowsize)) / windowsize)
@@ -10,7 +8,6 @@ StatMA <- ggplot2::ggproto("StatMA", ggplot2::Stat,
                   }
 )
 
-#' @import ggplot2
 #' @export
 stat_ma <- function(mapping = NULL, data = NULL, geom = "line",
                     position = "identity", na.rm = FALSE, show.legend = NA,

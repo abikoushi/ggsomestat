@@ -1,4 +1,3 @@
-#' @import ggplot2
 #' @export
 theme_bwblack <- function (base_size = 13, base_family = "", base_line_size = base_size/22,
                        base_rect_size = base_size/22) {
@@ -14,6 +13,7 @@ theme_bwblack <- function (base_size = 13, base_family = "", base_line_size = ba
                    legend.key = element_rect(fill = "white", colour = NA), complete = TRUE)
 }
 
+#' @export
 theme_miniblack <- function (base_size = 13, base_family = "", base_line_size = base_size/22,
                              base_rect_size = base_size/22) {
   ggplot2::theme_grey(base_size = base_size, base_family = base_family,
@@ -31,6 +31,7 @@ theme_miniblack <- function (base_size = 13, base_family = "", base_line_size = 
                    complete = TRUE)
 }
 
+#' @export
 theme_classicblack <- function (base_size = 13, base_family = "", base_line_size = base_size/22,
                                 base_rect_size = base_size/22)
 {
