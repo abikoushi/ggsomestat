@@ -1,11 +1,12 @@
 \name{stat_ma}
 \alias{stat_ma}
+\alias{StatMa}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-moving avarage
+Stat for moving avarage
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+Stat for moving avarage
 }
 \usage{
 stat_ma(mapping = NULL,
@@ -15,74 +16,49 @@ stat_ma(mapping = NULL,
   na.rm = FALSE,
   show.legend = NA,
   inherit.aes = TRUE,
-  windowsize = 7, ...)
+  windowsize = NULL,
+  stepsize = NULL, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{mapping}{
-%%     ~~Describe \code{mapping} here~~
+  Set of aesthetic mappings created by \code{\link[=aes]{aes()}}.
 }
   \item{data}{
-%%     ~~Describe \code{data} here~~
+  data to be displayed in this layer
 }
   \item{geom}{
-%%     ~~Describe \code{geom} here~~
+  geometric object to use to display the data
 }
   \item{position}{
-%%     ~~Describe \code{position} here~~
+  Position adjustment, either as a string naming the adjustment
+(e.g. \code{"jitter"} to use \code{position_jitter})
 }
   \item{na.rm}{
-%%     ~~Describe \code{na.rm} here~~
+a logical evaluating to TRUE or FALSE indicating whether NA values should be stripped before the computation proceeds.
 }
   \item{show.legend}{
-%%     ~~Describe \code{show.legend} here~~
+logical. Should this layer be included in the legends? NA, the default, includes if any aesthetics are mapped. FALSE never includes, and TRUE always includes. It can also be a named logical vector to finely select the aesthetics to display.
 }
   \item{inherit.aes}{
-%%     ~~Describe \code{inherit.aes} here~~
+The position adjustment to use for overlappling points on this layer
 }
   \item{windowsize}{
-%%     ~~Describe \code{windowsize} here~~
+  range to take mean
+}
+  \item{stepsize}{
+  step size
 }
   \item{\dots}{
-%%     ~~Describe \code{\dots} here~~
+further arguments passed to or from other methods.
 }
-}
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
-\value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
-\references{
-%% ~put references to the literature/web site here ~
-}
-\author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
 ggplot(economics, aes(date, unemploy)) +
   geom_line()+
-  stat_ma(colour="royalblue", windowsize=30)
+  stat_ma(colour="royalblue", windowsize=300)
+
+ggplot(economics, aes(date, unemploy)) +
+  geom_line()+
+  stat_ma(colour="royalblue", windowsize=300, stepsize=150)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory (show via RShowDoc("KEYWORDS")):
-% \keyword{ ~kwd1 }
-% \keyword{ ~kwd2 }
-% Use only one keyword per line.
-% For non-standard keywords, use \concept instead of \keyword:
-% \concept{ ~cpt1 }
-% \concept{ ~cpt2 }
-% Use only one concept per line.
