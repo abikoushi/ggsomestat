@@ -1,16 +1,15 @@
 Package: ggsomestat
 Type: Package
 Title: Some stat in ggplot2
-Version: 0.1.0
+Version: 0.1.2
 Author: Ko ABE
-Maintainer: Ko ABE <koabecontact@gmail.com>
-Description: Some stat in ggplot2
-    Some stat in ggplot2
+Maintainer: Ko ABE <abe.csb@tmd.ac.jp>
+Description: Provide some `stat_xxx` functions for ggplot2
 License: GPL
 Encoding: UTF-8
 LazyData: true
 Depends:
-    ggplot2 (>= 3.4)
+    ggplot2 (>= 3.5.0)
 Imports: 
     ggplot2, grid, scales
 RoxygenNote: 7.1.1

@@ -2,13 +2,6 @@
 # utilities
 "%||%" <- ggplot2:::"%||%"
 data_frame0 <- ggplot2:::data_frame0
-#rbind_dfs <- ggplot2:::rbind_dfs
-#new_data_frame <- ggplot2:::new_data_frame
-# dapply <- ggplot2:::dapply
-# df_rows <- ggplot2:::df_rows
-# modify_list <- ggplot2:::modify_list
-# id_var <- ggplot2:::id_var
-# id <- ggplot2:::id
 ###
 #' @export
 stat_ecdf2 <- function(mapping = NULL, data = NULL,
