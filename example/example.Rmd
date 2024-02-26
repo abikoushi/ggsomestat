@@ -1,0 +1,44 @@
+---
+title: "Chart gallaley"
+author: "Ko ABE"
+date: "2024-02-26"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## icon array
+
+```{r HEC}
+library(ggsomestat)
+HEC <- as.data.frame(HairEyeColor)
+ggplot(HEC, aes(x=Freq, colour=Sex))+
+  stat_countgrid(shape=15)+
+  facet_grid(Hair~Eye, labeller = label_both)
+```
+
+## ecdf
+
+```{r ecdf2}
+ggplot(searchConsole, aes(impressions, pagePath)) +
+  stat_ecdf2()
+```
+
+## binomial confidence interval
+
+```{r binomCI}
+entry0117 <- searchConsole[searchConsole$pagePath=="/entry/2015/01/17/064522",]
+ggplot(entry0117, aes(date, clicks/impressions)) +
+  geom_line()+
+  stat_binomCI(geom = "ribbon", aes(numerator=clicks, denominator=impressions), alpha=0.3)
+```
+
+## moving avarage
+
+```{r ma}
+ggplot(economics, aes(date, unemploy)) +
+  geom_line()+
+  stat_ma(colour="royalblue", windowsize=300)
+```
