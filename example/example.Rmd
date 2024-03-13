@@ -11,6 +11,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## icon array
 
+`stat_countgrid` is used to plot icon array.
+
 ```{r HEC}
 library(ggsomestat)
 HEC <- as.data.frame(HairEyeColor)
@@ -18,8 +20,16 @@ ggplot(HEC, aes(x=Freq, colour=Sex))+
   stat_countgrid(shape=15)+
   facet_grid(Hair~Eye, labeller = label_both)
 ```
+```{r hectile}
+ggplot(HEC, aes(x=Freq, fill=Sex))+
+  stat_countgrid(geom="tile", width=0.9, height=0.9)+
+  facet_grid(Hair~Eye, labeller = label_both)
+```
+
 
 ## ecdf
+
+`stat_ecdf2`
 
 ```{r ecdf2}
 ggplot(searchConsole, aes(impressions, pagePath)) +
