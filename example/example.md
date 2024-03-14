@@ -5,6 +5,8 @@ Ko ABE
 
 ## icon array
 
+`stat_countgrid` is used to plot icon array.
+
 ``` r
 library(ggsomestat)
 ```
@@ -15,12 +17,23 @@ library(ggsomestat)
 HEC <- as.data.frame(HairEyeColor)
 ggplot(HEC, aes(x=Freq, colour=Sex))+
   stat_countgrid(shape=15)+
-  facet_grid(Hair~Eye, labeller = label_both)
+  facet_grid(Hair~Eye, labeller = label_both)+
+  ggsomestat:::axis_text_black()
 ```
 
 ![](example_files/figure-gfm/HEC-1.png)<!-- -->
 
+``` r
+ggplot(HEC, aes(x=Freq, fill=Sex))+
+  stat_countgrid(geom="tile", width=0.9, height=0.9)+
+  facet_grid(Hair~Eye, labeller = label_both)
+```
+
+![](example_files/figure-gfm/hectile-1.png)<!-- -->
+
 ## ecdf
+
+`stat_ecdf2`
 
 ``` r
 ggplot(searchConsole, aes(impressions, pagePath)) +
@@ -55,4 +68,35 @@ ggplot(economics, aes(date, unemploy)) +
   stat_ma(colour="royalblue", windowsize=300)
 ```
 
-![](example_files/figure-gfm/ma-1.png)<!-- -->
+![](example_files/figure-gfm/ma-1.png)<!-- --> \## sparkline
+
+draw the parallel line charts
+
+``` r
+ggplot(searchConsole, aes(x = date, y = pagePath, inner_y = clicks)) +
+  stat_sparkline()
+```
+
+    ## Warning: The following aesthetics were dropped during statistical transformation:
+    ## inner_y.
+    ## ℹ This can happen when ggplot fails to infer the correct grouping structure in
+    ##   the data.
+    ## ℹ Did you forget to specify a `group` aesthetic or to convert a numerical
+    ##   variable into a factor?
+
+![](example_files/figure-gfm/sparkline-1.png)<!-- -->
+
+``` r
+ggplot(searchConsole, aes(x = date, y = pagePath, inner_y = clicks)) +
+  stat_sparkline()+
+  axis_text_black()
+```
+
+    ## Warning: The following aesthetics were dropped during statistical transformation:
+    ## inner_y.
+    ## ℹ This can happen when ggplot fails to infer the correct grouping structure in
+    ##   the data.
+    ## ℹ Did you forget to specify a `group` aesthetic or to convert a numerical
+    ##   variable into a factor?
+
+![](example_files/figure-gfm/sparkb-1.png)<!-- -->

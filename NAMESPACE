@@ -1,4 +1,4 @@
-export(theme_bwblack, theme_miniblack, theme_classicblack)
+export(axis_text_black)
 export(stat_binomCI, StatBinomCI)
 export(stat_ma, StatMA)
 export(stat_ecdf2, StatEcdf2)

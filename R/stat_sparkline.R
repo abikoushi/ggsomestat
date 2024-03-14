@@ -31,7 +31,7 @@ stat_sparkline <- function(mapping = NULL, data = NULL,
 StatSparkline <- ggproto("StatSparkline", Stat,
                      required_aes = c("x","y","inner_y"),
 
-                     default_aes = aes(y = after_stat(y)),
+                     default_aes = aes(x=after_stat(x), y = after_stat(y)),
 
                      setup_params = function(data, params) {
                        params$flipped_aes <- has_flipped_aes(data, params, main_is_orthogonal = FALSE, main_is_continuous = TRUE)
@@ -48,11 +48,11 @@ StatSparkline <- ggproto("StatSparkline", Stat,
                      compute_group = function(data, scales, height = 1, flipped_aes = FALSE) {
                        data <- flip_data(data, flipped_aes)
                        y <- data$inner_y
-                       y <- y/max(abs(y),na.rm = TRUE)
+                       y <- y/max(abs(y), na.rm = TRUE)
                        mp = median(y, na.rm = TRUE)
                        df_sp <- data_frame0(x = data$x,
                                             y = data$y + height*(y-mp),
-                                            .size = length(x))
+                                            .size = length(data$x))
                        #df_sp <- new_data_frame(list(x = data$x, y = data$y + height*(y-mp)))
                        df_sp$flipped_aes <- flipped_aes
                        flip_data(df_sp, flipped_aes)

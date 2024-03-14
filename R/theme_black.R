@@ -1,4 +1,4 @@
-#' @export
+
 theme_bwblack <- function (base_size = 13, base_family = "", base_line_size = base_size/22,
                        base_rect_size = base_size/22) {
   ggplot2::theme_grey(base_size = base_size, base_family = base_family,
@@ -13,7 +13,7 @@ theme_bwblack <- function (base_size = 13, base_family = "", base_line_size = ba
                    legend.key = element_rect(fill = "white", colour = NA), complete = TRUE)
 }
 
-#' @export
+
 theme_miniblack <- function (base_size = 13, base_family = "", base_line_size = base_size/22,
                              base_rect_size = base_size/22) {
   ggplot2::theme_grey(base_size = base_size, base_family = base_family,
@@ -31,7 +31,7 @@ theme_miniblack <- function (base_size = 13, base_family = "", base_line_size = 
                    complete = TRUE)
 }
 
-#' @export
+
 theme_classicblack <- function (base_size = 13, base_family = "", base_line_size = base_size/22,
                                 base_rect_size = base_size/22)
 {
@@ -42,4 +42,9 @@ theme_classicblack <- function (base_size = 13, base_family = "", base_line_size
           axis.text.y = element_text(colour="black"),
           panel.grid.minor = element_blank(), axis.line = element_line(colour = "black",size = rel(1)), legend.key = element_blank(),
           strip.background = element_rect(fill = "white", colour = "black", size = rel(2)), complete = TRUE)
+}
+
+
+axis_text_black <- function(){
+  ggplot2::theme(axis.text = element_text(colour="black"))
 }

@@ -13,12 +13,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 `stat_countgrid` is used to plot icon array.
 
+
+
 ```{r HEC}
 library(ggsomestat)
 HEC <- as.data.frame(HairEyeColor)
 ggplot(HEC, aes(x=Freq, colour=Sex))+
   stat_countgrid(shape=15)+
-  facet_grid(Hair~Eye, labeller = label_both)
+  facet_grid(Hair~Eye, labeller = label_both)+
+  ggsomestat:::axis_text_black()
 ```
 ```{r hectile}
 ggplot(HEC, aes(x=Freq, fill=Sex))+
@@ -51,4 +54,18 @@ ggplot(entry0117, aes(date, clicks/impressions)) +
 ggplot(economics, aes(date, unemploy)) +
   geom_line()+
   stat_ma(colour="royalblue", windowsize=300)
+```
+## sparkline
+
+draw the parallel line charts
+
+```{r sparkline}
+ggplot(searchConsole, aes(x = date, y = pagePath, inner_y = clicks)) +
+  stat_sparkline()
+```
+
+```{r sparkb}
+ggplot(searchConsole, aes(x = date, y = pagePath, inner_y = clicks)) +
+  stat_sparkline()+
+  axis_text_black()
 ```
