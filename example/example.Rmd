@@ -32,7 +32,7 @@ ggplot(HEC, aes(x=Freq, fill=Sex))+
 
 ## ecdf
 
-`stat_ecdf2`
+`stat_ecdf2` draws parallel ecdf plot.
 
 ```{r ecdf2}
 ggplot(searchConsole, aes(impressions, pagePath)) +
@@ -57,7 +57,7 @@ ggplot(economics, aes(date, unemploy)) +
 ```
 ## sparkline
 
-draw the parallel line charts
+`stat?sparkline` draws the parallel line charts
 
 ```{r sparkline}
 ggplot(searchConsole, aes(x = date, y = pagePath, inner_y = clicks)) +

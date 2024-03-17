@@ -50,12 +50,12 @@ StatSparkline <- ggproto("StatSparkline", Stat,
                        y <- data$inner_y
                        y <- y/max(abs(y), na.rm = TRUE)
                        mp = median(y, na.rm = TRUE)
-                       df_sp <- data_frame0(x = data$x,
-                                            y = data$y + height*(y-mp),
-                                            .size = length(data$x))
-                       #df_sp <- new_data_frame(list(x = data$x, y = data$y + height*(y-mp)))
-                       df_sp$flipped_aes <- flipped_aes
-                       flip_data(df_sp, flipped_aes)
+                       data$y <- data$y + height*(y-mp)
+                       # df_sp <- data_frame0(x = data$x,
+                       #                      y = data$y + height*(y-mp),
+                       #                      .size = length(data$x))
+                       #df_sp$flipped_aes <- flipped_aes
+                       flip_data(data, flipped_aes)
                      }
 )
 

@@ -53,17 +53,22 @@ StatEcdf2 <- ggproto("StatEcdf2", Stat,
                       x <- data$x
                       if(pad){
                         x <- c(-Inf,data$x,Inf)
+                        data <- rbind(
+                          data[1,,drop=FALSE],
+                          data,
+                          data[nrow(data),,drop=FALSE])
                       }
                       res <- sort(x, decreasing = decreasing)
                       p <- seq(0, 1, length.out = length(x))
-                      df_ecdf <- data_frame0(
-                        x = unname(res),
-                        y = data$y[is.finite(data$y)][1] + height*p,
-                        .size = length(res)
-                      )
-                      #df_ecdf <- new_data_frame(list(x = unname(unlist(res)), y = data$y[is.finite(data$y)][1] + height*p))
-                      df_ecdf$flipped_aes <- flipped_aes
-                      flip_data(df_ecdf, flipped_aes)
+                      data$x = unname(res)
+                      data$y = data$y[is.finite(data$y)][1] + height*p
+                      # df_ecdf <- data_frame0(
+                      #   x = unname(res),
+                      #   y = data$y[is.finite(data$y)][1] + height*p,
+                      #   .size = length(res)
+                      # )
+                      #df_ecdf$flipped_aes <- flipped_aes
+                      flip_data(data, flipped_aes)
                     }
 )
 

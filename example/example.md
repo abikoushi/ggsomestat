@@ -33,7 +33,7 @@ ggplot(HEC, aes(x=Freq, fill=Sex))+
 
 ## ecdf
 
-`stat_ecdf2`
+`stat_ecdf2` draws parallel ecdf plot.
 
 ``` r
 ggplot(searchConsole, aes(impressions, pagePath)) +
@@ -51,13 +51,6 @@ ggplot(entry0117, aes(date, clicks/impressions)) +
   stat_binomCI(geom = "ribbon", aes(numerator=clicks, denominator=impressions), alpha=0.3)
 ```
 
-    ## Warning: The following aesthetics were dropped during statistical transformation:
-    ## numerator, denominator, and y.
-    ## ℹ This can happen when ggplot fails to infer the correct grouping structure in
-    ##   the data.
-    ## ℹ Did you forget to specify a `group` aesthetic or to convert a numerical
-    ##   variable into a factor?
-
 ![](example_files/figure-gfm/binomCI-1.png)<!-- -->
 
 ## moving avarage
@@ -70,19 +63,12 @@ ggplot(economics, aes(date, unemploy)) +
 
 ![](example_files/figure-gfm/ma-1.png)<!-- --> \## sparkline
 
-draw the parallel line charts
+`stat?sparkline` draws the parallel line charts
 
 ``` r
 ggplot(searchConsole, aes(x = date, y = pagePath, inner_y = clicks)) +
   stat_sparkline()
 ```
-
-    ## Warning: The following aesthetics were dropped during statistical transformation:
-    ## inner_y.
-    ## ℹ This can happen when ggplot fails to infer the correct grouping structure in
-    ##   the data.
-    ## ℹ Did you forget to specify a `group` aesthetic or to convert a numerical
-    ##   variable into a factor?
 
 ![](example_files/figure-gfm/sparkline-1.png)<!-- -->
 
@@ -91,12 +77,5 @@ ggplot(searchConsole, aes(x = date, y = pagePath, inner_y = clicks)) +
   stat_sparkline()+
   axis_text_black()
 ```
-
-    ## Warning: The following aesthetics were dropped during statistical transformation:
-    ## inner_y.
-    ## ℹ This can happen when ggplot fails to infer the correct grouping structure in
-    ##   the data.
-    ## ℹ Did you forget to specify a `group` aesthetic or to convert a numerical
-    ##   variable into a factor?
 
 ![](example_files/figure-gfm/sparkb-1.png)<!-- -->
