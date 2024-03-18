@@ -31,6 +31,16 @@ ggplot(HEC, aes(x=Freq, fill=Sex))+
 
 ![](example_files/figure-gfm/hectile-1.png)<!-- -->
 
+``` r
+ggplot(HEC, aes(x=Freq, label=substr(Sex,1,1)))+
+  stat_countgrid(geom="text",size=3)+
+  facet_grid(Hair~Eye, labeller = label_both)+
+  theme_bw()+
+  ggsomestat:::axis_text_black()
+```
+
+![](example_files/figure-gfm/text-1.png)<!-- -->
+
 ## ecdf
 
 `stat_ecdf2` draws parallel ecdf plot.
